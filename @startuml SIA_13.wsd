@@ -1,0 +1,24 @@
+@startuml SIA_13
+left to right direction
+skinparam actorStyle awesome
+actor Пользователь as us
+
+package "Электронная доска объявлений" {
+    usecase check as "Посмотреть объявления
+    о продаже товаров"
+    usecase add as "Разместить объявление
+    о продаже товара"
+    usecase buy as "Купить товар"
+    usecase del as "Удалить объявление
+    о продаже товара"
+    usecase otz as "Оставить отзыв
+    о покупке"
+}
+
+us --> del
+buy .-> del : При покупке всего товара
+us --> check
+us --> add
+us --> buy
+buy .-> otz : По желанию пользователя
+@enduml
