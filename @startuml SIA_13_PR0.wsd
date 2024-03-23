@@ -1,4 +1,4 @@
-@startuml SIA_13_PR1
+@startuml SIA_13_PR0
 left to right direction
 skinparam actorStyle awesome
 actor Пользователь as us

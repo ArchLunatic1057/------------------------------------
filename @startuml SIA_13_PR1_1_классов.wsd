@@ -1,4 +1,4 @@
-@startuml SIA_13_PR2_1
+@startuml SIA_13_PR1_1
 package Interface <<Frame>> {
     class Пользователь #PaleGoldenRod ##[dashed]Black {
         {field} cookie

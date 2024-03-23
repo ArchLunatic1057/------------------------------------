@@ -1,8 +1,7 @@
-@startuml SIA_13_PR3_2
+@startuml SIA_13_PR2_2
 participant Seller as S
 participant ElectBoard as E
 participant Buyer as B
-|||
 ==Размещение товара==
 S -> E: Создание объявления \nо продаже товара
 S -> E: Указание цены, количества \nи способа связи с Продавцом
