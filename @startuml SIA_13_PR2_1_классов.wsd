@@ -1,0 +1,49 @@
+@startuml SIA_13_PR2_1
+package Interface <<Frame>> {
+    class Пользователь #PaleGoldenRod ##[dashed]Black {
+        {field} cookie
+        {method} + Посмотреть свои объявления
+        {method} о продаже товаров
+        {method} + Посмотреть объявления
+        {method} о продаже товаров по запросу
+        {method} + Разместить объявление
+        {method} о продаже товара
+        {method} + Купить товар
+        {method} + Оставить отзыв о покупке
+    }
+}
+package System <<Cloud>> {
+    class "Информационная система" {
+        {method} + Взаимодействие с запросами
+        __ protected data __
+        {method} # Фронтенд обработчик
+    }
+    class "Система обработчик" {
+        {method} + Взаимодействие с запросами
+        __ protected data __
+        {method} # Бекенд обработчик
+    }
+    class "Система связь" {
+        == private data ==
+        {method} - Запрос на сервер баз данных
+    }
+}
+
+package Database <<Database>> {
+    class "Сервер баз данных" {
+    cookie[] пользователей
+    __ protected data __
+    {method} # Развернуть бекап
+    {method} # Удалить базу
+    == private data ==
+    {method} - Выполнить SQL запрос
+    {method} - Сделать бекап
+    }
+}
+
+Пользователь -- "Информационная система"
+Пользователь -right- "Система обработчик"
+"Система связь" *-- "Информационная система"
+"Система связь" *-left- "Система обработчик"
+"Сервер баз данных" <.right. "Система связь"
+@enduml
